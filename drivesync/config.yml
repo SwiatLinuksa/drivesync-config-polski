@@ -1,0 +1,62 @@
+# Ścieżka do lokalnego folderu na dysku (ścieżka bezwzględna)  
+
+drive_path: "~/sciezka_do_lokalnego_folderu_synchronizacji"
+
+# Jeśli to prawda, pliki, które zostały usunięte lokalnie, zostaną również usunięte
+# z dysku google                  
+# Default: true
+allow_remote_deletion: true
+                                                           
+# Określa co zostanie zrobione gdy plik zostanie zmieniony lokalnie lub zdalnie w gdrive
+#keep_latest => Synchronizuje dowolną wersję, która była ostatnio edytowana (domyślnie)
+#keep_remote => Pobiera zdalną wersję i zastępuje lokalne zmiany
+#keep_local =>  Przesyła wersję lokalną i zastępuje zdalne zmiany                   
+#ignore => Nic nie robi i zachowuje obie wersje
+update_conflict_strategy: keep_latest
+
+# Próg limitu czasu dla usługi w sekundach. Jeśli prośba trwa dłużej
+# to zostanie anulowane. Jeśli chcesz, możesz to zwiększyć
+# gdy musisz przesyłać duże pliki
+# Default: 1200
+timeout: 1200
+
+#Licza przypadków, w których usługa będzie ponawiać żadania
+#Default: 1
+retries: 1
+
+# Największy rozmiar pliku w megabajtach, który obsłuży ten program. Rozmiar większy niż
+# podany spowoduje zignorowanie pliku. Uważaj na zwiększenie tej wartości
+# gdyż wznawianie przesyłania nie zostało jeszcze zaimplementowane. 
+# Jeśli musisz zsynchronizować duże pliki może być również konieczne, 
+# aby zwiększyć próg limitu czasu
+#Default: 512
+
+max_file_size: 512
+
+# Określa, które pliki będą synchronizowane.
+# blacklist => Każdy plik oprócz tych zawartych na „czarnej liście” poniżej będzie
+# synchronizowany (domyślnie)
+# whitelist => Synchronizowane będą tylko pliki z „białej listy”
+inclusion: blacklist
+inclusion: whitelist
+
+# Biała i czarna lista zawierają ścieżki plików względem katalogu głównego Dysku. Które będą
+# (biała lista) / nie zostanie zsynchronizowany (czarna lista).
+# Globs [https://en.wikipedia.org/wiki/Glob_(programming)] są dozwolone
+# Przykłady: czarna lista: [„foo.bar”, „tajne _ *. Txt”, „ukryte / docs / *”] / biała lista: [„sync / *”, „logs.tar.gz”]
+
+# Moje ustawienie blacklisty powoduje blokadę synchronizacji plików z głównego katalogu google drive. Synchronizacja z podkatalogów jest dozwolona dzięki zastosowaniu whitelist.
+blacklist: ["*.*"]
+
+# Biała lista - ["nazwa-zdalnego-katalogu/*.kdbx",".kdbx"] - z katalogu "nazwa zdalnegokatalogu" na gdrive(lub katalogu lokalnego) są synchronizowane wylącznie pliki z rozszerzeniem .kdbx - wszystkie inne są pomijane. Dotyczy także usuwania w katalogu lokalnym - w gdrive
+whitelist: ["baza/*.kdbx",".kdbx"]
+
+# Jeśli wartość jest ustawiona na true, pliki, które zostały Ci udostępnione, również zostaną zsynchronizowane, jeżeli dodałeś je do swojego dysku google.
+# Default: false
+sync_shared_in_drive: false
+
+# # Jeśli to prawda, będą śledzone dowiązania symboliczne w folderze lokalnego dysku
+# Default: false
+follow_symlinks: false
+
+config_version: 1.3
