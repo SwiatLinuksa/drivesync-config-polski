@@ -1,0 +1,65 @@
+#Path for your local drive folder (absolute path)
+drive_path: "~/Documents/drive"
+
+#Jeżeli wartość true to usuwanie plików lokalnie na dysku , usuwa je także w chmurze gdrive
+#Standardowo: true
+allow_remote_deletion: true
+
+#Określa co zostanie zrobione gdy plik zostanie zmieniony lokalnie lub zdalnie w gdrive
+#Determines what will be done if a file has been edited locally and remotely
+#keep_latest => Syncs whichever version has been edited last (default)
+#keep_remote => Downloads the remote version and overwrites local changes
+#keep_local =>  Uploads the local version and overwrites remote changes
+#ignore => Does nothing and keeps both versions
+update_conflict_strategy: keep_latest
+
+
+#Timeout threshold for the service in seconds. If a request takes longer
+#than this, it will be cancelled. You might want to increase this if you
+#have to transfer large files
+#Default: 1200
+timeout: 1200
+
+#Number of times the service will retry requests
+#Default: 1
+retries: 1
+
+#Largest file size in megabytes that this program will handle. Anything 
+#larger than this will be ignored. Be careful about increasing this value
+#as resumable upload has not been implemented yet. If you have to sync 
+#large files you may also need to increase the timeout threshold
+#Default: 512
+max_file_size: 512
+#Determines which files will be synced.
+#blacklist => Every file except those included in 'blacklist' below will
+#be syced (default)
+#whitelist => Only files included in 'whitelist' will be synced
+
+inclusion: blacklist
+inclusion: whitelist
+#White and blacklist contain file paths relative to Drive root. Which will
+#(whitelist) / won't (blacklist) be synced.
+#Globs [https://en.wikipedia.org/wiki/Glob_(programming)] are allowed
+#Examples: blacklist: ["foo.bar","secret_*.txt","hidden/docs/*"] / whitelist: ["sync/*", "logs.tar.gz"]
+
+#Czarnalista - ["*.*"] - wszystkie pliki z głównego katalogu na gdrive nie są akualizowane, nie zależnie
+# od rozszerzenia
+blacklist: ["*.*"]
+
+##Biała lista - ["hasla/*.kdbx",".kdbx"] - z katalogu hasła na gdrive( lub katalogu lokalnego ) są synchronizowane
+#wylącznie pliki
+# z rozszerzeniem .kdbx - wszystkie inne są pomijane. Dotyczy także usuwania w katalogu lokalnym - w gdrive 
+#pozostają wszystkie poza .kdbx "hasla/" - katalog na gdrive ktory jest synchronizowany z  tym lokalnie
+whitelist: ["hasla/*.kdbx",".kdbx"]
+
+#If true, files that have been shared with you will be synced as well, 
+#as long as you added them to your Drive
+#Default: false
+sync_shared_in_drive: false
+
+#If true, symlinks inside your local drive folder will be followed
+#Default: false
+
+follow_symlinks: false
+
+config_version: 1.3
