@@ -1,11 +1,10 @@
 # Ścieżka do lokalnego folderu na dysku (ścieżka bezwzględna)  
-
 drive_path: "~/sciezka_do_lokalnego_folderu_synchronizacji"
 
 # Jeśli to prawda, pliki, które zostały usunięte lokalnie, zostaną również usunięte
-# z dysku google                  
-# Default: true
-allow_remote_deletion: true
+# z dysku google.      
+# Standardowa wartość: true
+allow_remote_deletion: false
                                                            
 # Określa co zostanie zrobione gdy plik zostanie zmieniony lokalnie lub zdalnie w gdrive
 #keep_latest => Synchronizuje dowolną wersję, która była ostatnio edytowana (domyślnie)
@@ -17,11 +16,11 @@ update_conflict_strategy: keep_latest
 # Próg limitu czasu dla usługi w sekundach. Jeśli prośba trwa dłużej
 # to zostanie anulowane. Jeśli chcesz, możesz to zwiększyć
 # gdy musisz przesyłać duże pliki
-# Default: 1200
+# Standardowa wartość: 1200
 timeout: 1200
 
 #Licza przypadków, w których usługa będzie ponawiać żadania
-#Default: 1
+#Standardowa wartość: 1
 retries: 1
 
 # Największy rozmiar pliku w megabajtach, który obsłuży ten program. Rozmiar większy niż
@@ -29,7 +28,7 @@ retries: 1
 # gdyż wznawianie przesyłania nie zostało jeszcze zaimplementowane. 
 # Jeśli musisz zsynchronizować duże pliki może być również konieczne, 
 # aby zwiększyć próg limitu czasu
-#Default: 512
+# Standardowa wartość: 512
 
 max_file_size: 512
 
@@ -49,14 +48,14 @@ inclusion: whitelist
 blacklist: ["*.*"]
 
 # Biała lista - ["nazwa-zdalnego-katalogu/*.kdbx",".kdbx"] - z katalogu "nazwa zdalnegokatalogu" na gdrive(lub katalogu lokalnego) są synchronizowane wylącznie pliki z rozszerzeniem .kdbx - wszystkie inne są pomijane. Dotyczy także usuwania w katalogu lokalnym - w gdrive
-whitelist: ["baza/*.kdbx",".kdbx"]
+whitelist: ["nazwa-zdalnego-katalogu/*.kdbx",".kdbx"]
 
 # Jeśli wartość jest ustawiona na true, pliki, które zostały Ci udostępnione, również zostaną zsynchronizowane, jeżeli dodałeś je do swojego dysku google.
-# Default: false
+# Standardowa wartość: false
 sync_shared_in_drive: false
 
 # # Jeśli to prawda, będą śledzone dowiązania symboliczne w folderze lokalnego dysku
-# Default: false
+# Standardowa wartość: false
 follow_symlinks: false
 
 config_version: 1.3
