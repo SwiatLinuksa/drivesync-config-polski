@@ -5,4 +5,7 @@ Moje zmiany to:
 - Przetłumaczenie w pliku config.yml oryginalnych angielskich opisów funkcji na język Polski
 - Wstępna konfiguracja niektórych funkcji aby jedyne synchronizowane pliki to te, z rozszerzeniem .kdbx
 
+
+Repozytorium zawiera także oryginalny nie modyfikpowany przezemnie plik config.yml.old w celu porównawczym albo jakichkolwiek problemach w działaniu z moją wersją.
+
 Wszelkie pytania dotyczące programu drivesync proszę kierować do autora programu - MStadlmeier.
