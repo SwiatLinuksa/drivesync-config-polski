@@ -1,4 +1,5 @@
-# Ścieżka do lokalnego folderu na dysku (ścieżka bezwzględna)  
+# Ścieżka do lokalnego folderu na dysku (ścieżka bezwzględna).Bez katalogu gdzie
+# będziemy przechowywać synchronizowany plik.
 drive_path: "~/sciezka_do_lokalnego_folderu_synchronizacji"
 
 # Jeśli to prawda, pliki, które zostały usunięte lokalnie, zostaną również usunięte
@@ -47,7 +48,9 @@ inclusion: whitelist
 # Moje ustawienie blacklisty powoduje blokadę synchronizacji plików z głównego katalogu google drive. Synchronizacja z podkatalogów jest dozwolona dzięki zastosowaniu whitelist.
 blacklist: ["*.*"]
 
-# Biała lista - ["nazwa-zdalnego-katalogu/*.kdbx",".kdbx"] - z katalogu "nazwa zdalnegokatalogu" na gdrive(lub katalogu lokalnego) są synchronizowane wylącznie pliki z rozszerzeniem .kdbx - wszystkie inne są pomijane. Dotyczy także usuwania w katalogu lokalnym - w gdrive
+# Biała lista - ["nazwa-zdalnego-katalogu/*.kdbx",".kdbx"] - z katalogu "nazwa zdalnegokatalogu" 
+# na gdrive(lub katalogu lokalnego) są synchronizowane wylącznie pliki z rozszerzeniem .kdbx
+# wszystkie inne są pomijane. Dotyczy także usuwania w katalogu lokalnym - w gdrive
 whitelist: ["nazwa-zdalnego-katalogu/*.kdbx",".kdbx"]
 
 # Jeśli wartość jest ustawiona na true, pliki, które zostały Ci udostępnione, również zostaną zsynchronizowane, jeżeli dodałeś je do swojego dysku google.
